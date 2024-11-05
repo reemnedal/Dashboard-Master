@@ -6,16 +6,8 @@ const pool = require("./../config/db");
 // Function to fetch all photographers who are not deleted
 const fetchPhotographers = async (req, res) => {
   try {
-
-    // const userId = req.user.user_id; 
-
-  // const userId = req.user.user_id;
-
-
-  // console.log(`User ID in photographer  : ${userId}`);
-    
-     // Query to fetch all users with role 'photographer' and is_deleted = false
-    const query = `
+ 
+     const query = `
       SELECT * FROM users 
       WHERE role = 'photographer' AND is_deleted = false
       

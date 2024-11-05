@@ -9,12 +9,12 @@ function Tableuser() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(6); // Number of users to display per page
-  const { softDeleteUser, loading: deleteLoading } = useSoftDelete();
+  const { softDelete, loading: deleteLoading } = useSoftDelete();
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users'); // Adjust API route as needed
+        const response = await axios.get('http://localhost:3000/api/users'); // Adjust API route as needed
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -43,8 +43,8 @@ function Tableuser() {
 
   // Soft delete handler
   const handleDelete = async (userId) => {
-    const success = await softDeleteUser(userId); // Implement this in your soft delete hook
-    if (success) {
+    const success = await softDelete('http://localhost:3000/api/users', userId);
+        if (success) {
       setUsers(prev => prev.filter(user => user.user_id !== userId));
     }
   };

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Camera, Mail, MapPin, Phone, Trash2, MessageSquare, Loader2 } from 'lucide-react';
 import useSoftDelete from '../Hooks/softDelte';
-
+ 
 function TablePho() {
   const [photographers, setPhotographers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [photographersPerPage] = useState(6); // Number of photographers to display per page
-  const { softDeletePhotographer, loading: deleteLoading, error: deleteError } = useSoftDelete();
+ const { softDelete, loading: deleteLoading, error: deleteError } = useSoftDelete();
 
   useEffect(() => {
     const fetchPhotographers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/photographer');
+        const response = await axios.get('http://localhost:3000/api/photographer');
         setPhotographers(response.data);
       } catch (error) {
         console.error('Error fetching photographer data:', error);
@@ -54,8 +54,8 @@ function TablePho() {
 
     // Soft delete handler
     const handleDelete = async (photographerId) => {
-        const success = await softDeletePhotographer(photographerId);
-        if (success) {
+        const success = await softDelete('http://localhost3000/api/photographer', photographerId);
+                if (success) {
           // Refresh the photographer list or remove the deleted photographer from state
           setPhotographers(prev => prev.filter(p => p.user_id !== photographerId)); // Update based on your unique identifier
         }

@@ -8,6 +8,10 @@ import {
 import { useState } from 'react';
 import TablePho from '../pages/phoTable';
 import Tableuser from '../pages/TableUSer';
+import CardSession from '../pages/sessions';
+import BookedSessions from '../pages/booked_Sessions';
+import AcceptPhotographers from '../pages/Accept_Photographers';
+import AddProduct from '../pages/products';
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -40,15 +44,15 @@ const Nav = () => {
       case 'photographers':
         return <TablePho/>;
       case 'sessions':
-        return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">All Sessions</h2></div>;
+        return <CardSession/>;
       case 'bookedSessions':
-        return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Booked Sessions</h2></div>;
-      case 'activeSessions':
-        return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Active Sessions</h2></div>;
+        return  <BookedSessions/>;
+      case 'AcceptPhotographers':
+        return  <AcceptPhotographers/>;
       case 'statistics':
         return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Statistics & Analytics</h2></div>;
       case 'products':
-        return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Products Management</h2></div>;
+        return  <AddProduct/>;
       default:
         return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Welcome to Dashboard</h2></div>;
     }
@@ -82,7 +86,7 @@ const Nav = () => {
           <MenuItem icon={Camera} text="Photographers" id="photographers" />
           <MenuItem icon={Calendar} text="Sessions" id="sessions" />
           <MenuItem icon={BookOpen} text="Booked Sessions" id="bookedSessions" />
-          <MenuItem icon={CheckSquare} text="Active Sessions" id="activeSessions" />
+          <MenuItem icon={CheckSquare} text="Accept Photographers" id="AcceptPhotographers" />
           <MenuItem icon={BarChart2} text="Statistics" id="statistics" />
           <MenuItem icon={Package} text="Products" id="products" />
           <MenuItem icon={Settings} text="Settings" id="settings" />

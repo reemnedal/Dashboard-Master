@@ -11,7 +11,7 @@ app.use(express.json());
 
 // CORS configuration
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'http://localhost:5174'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -42,7 +42,7 @@ app.get('/api/test', (req, res) => {
  
 app.use('/api', routes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
