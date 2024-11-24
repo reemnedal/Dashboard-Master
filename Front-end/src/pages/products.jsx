@@ -121,8 +121,8 @@ function AddProduct() {
         <option value="camera">Cameras</option>
         <option value="lens">Lenses</option>
         <option value="lighting">Lighting</option>
-        <option value="camera bags">Camera Bags</option>
-        <option value="memory cards">Memory Cards</option>
+        <option value="camera bag">Camera Bags</option>
+        <option value="memory card">Memory Cards</option>
         <option value="others">Others</option>
       </select>
 
@@ -173,6 +173,17 @@ function AddProduct() {
           Next
         </button>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
     </div>
   );
 }
@@ -295,6 +306,7 @@ function ProductForm({ product, onClose, onSuccess }) {
           </div>
         </form>
       </div>
+      
     </div>
   );
 }

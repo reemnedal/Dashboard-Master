@@ -90,9 +90,9 @@ function TablePho() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-[#704e81]">{photographer.full_name}</h3>
                 <div className="flex gap-2">
-                  <button className="p-2 text-gray-600 hover:text-[#704e81] rounded-full hover:bg-gray-100">
+                  {/* <button className="p-2 text-gray-600 hover:text-[#704e81] rounded-full hover:bg-gray-100">
                     <MessageSquare size={20} />
-                  </button>
+                  </button> */}
                   <button 
                     className="p-2 text-gray-600 hover:text-red-500 rounded-full hover:bg-gray-100"
                     onClick={() => handleDelete(photographer.user_id)} // Pass the user_id for deletion

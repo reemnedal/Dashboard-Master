@@ -12,6 +12,7 @@ import CardSession from '../pages/sessions';
 import BookedSessions from '../pages/booked_Sessions';
 import AcceptPhotographers from '../pages/Accept_Photographers';
 import AddProduct from '../pages/products';
+import Statistics from '../pages/statistics';
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -37,8 +38,8 @@ const Nav = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'dashboard':
-        return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Dashboard Overview</h2></div>;
+      case 'statistics':
+        return <Statistics/>;
       case 'users':
         return  <Tableuser/>;
       case 'photographers':
@@ -49,8 +50,8 @@ const Nav = () => {
         return  <BookedSessions/>;
       case 'AcceptPhotographers':
         return  <AcceptPhotographers/>;
-      case 'statistics':
-        return <div className="p-6"><h2 className="text-2xl font-bold text-[#704e81]">Statistics & Analytics</h2></div>;
+      // case 'statistics':
+      //   return <Statistics/>;
       case 'products':
         return  <AddProduct/>;
       default:
@@ -81,15 +82,20 @@ const Nav = () => {
 
         {/* Navigation Links */}
         <div className="space-y-2">
-          <MenuItem icon={Home} text="Dashboard" id="dashboard" />
+          {/* <MenuItem icon={Home} text="Dashboard" id="dashboard" />
+          
+          */}
+
+
+<MenuItem icon={BarChart2} text="Statistics" id="statistics" />
           <MenuItem icon={Users} text="Users" id="users" />
           <MenuItem icon={Camera} text="Photographers" id="photographers" />
           <MenuItem icon={Calendar} text="Sessions" id="sessions" />
           <MenuItem icon={BookOpen} text="Booked Sessions" id="bookedSessions" />
           <MenuItem icon={CheckSquare} text="Accept Photographers" id="AcceptPhotographers" />
-          <MenuItem icon={BarChart2} text="Statistics" id="statistics" />
+       
           <MenuItem icon={Package} text="Products" id="products" />
-          <MenuItem icon={Settings} text="Settings" id="settings" />
+          {/* <MenuItem icon={Settings} text="Settings" id="settings" /> */}
         </div>
 
         {/* Logout Button */}
@@ -110,11 +116,11 @@ const Nav = () => {
             <h1 className="text-xl font-semibold text-[#704e81]">
               {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
             </h1>
-            <div className="flex items-center space-x-4">
+            {/* <div className="flex items-center space-x-4">
               <button className="p-2 text-[#704e81] hover:bg-gray-100 rounded-full">
                 <Settings size={20} />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 
